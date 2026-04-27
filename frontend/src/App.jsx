@@ -26,7 +26,7 @@ const Navigation = () => {
     <nav className="navbar">
       <Link to="/" className="navbar-brand">
         <Activity color="var(--primary-color)" size={28} />
-        CDSS
+        OncoRisk
       </Link>
       <div className="nav-links">
         <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}>

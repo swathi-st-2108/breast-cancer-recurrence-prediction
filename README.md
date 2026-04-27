@@ -1,6 +1,6 @@
-# Breast Cancer Recurrence Prediction (CDSS)
+# Breast Cancer Recurrence Prediction (OncoRisk)
 
-A full-stack Clinical Decision Support System (CDSS) designed to assist medical professionals in predicting the likelihood of breast cancer recurrence. The system uses a machine learning model to evaluate tumor characteristics and provides explainable, data-driven insights.
+A full-stack Clinical Decision Support System (OncoRisk) designed to assist medical professionals in predicting the likelihood of breast cancer recurrence. The system uses a machine learning model to evaluate tumor characteristics and provides explainable, data-driven insights.
 
 ## Features
 
