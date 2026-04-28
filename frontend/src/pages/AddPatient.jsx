@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Activity } from 'lucide-react';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 const AddPatient = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -26,7 +28,7 @@ const AddPatient = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:5000/predict', formData);
+      const res = await axios.post(`${API_URL}/predict`, formData);
       navigate(`/result/${res.data.id}`, { state: { result: res.data } });
     } catch (err) {
       console.error(err);

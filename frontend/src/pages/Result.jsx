@@ -5,6 +5,8 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 import { Bar } from 'react-chartjs-2';
 import { Download, AlertTriangle, CheckCircle, ArrowLeft } from 'lucide-react';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const Result = () => {
@@ -56,7 +58,7 @@ const Result = () => {
   const probPercent = (probability * 100).toFixed(1);
 
   const handleDownload = () => {
-    window.open(`http://localhost:5000/generate-report/${id}`, '_blank');
+    window.open(`${API_URL}/generate-report/${id}`, '_blank');
   };
 
   return (

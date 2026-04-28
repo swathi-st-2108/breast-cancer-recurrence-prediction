@@ -5,6 +5,8 @@ import { Pie } from 'react-chartjs-2';
 import { Users, AlertTriangle, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const Dashboard = () => {
@@ -15,10 +17,10 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const statsRes = await axios.get('http://localhost:5000/dashboard-stats');
+        const statsRes = await axios.get(`${API_URL}/dashboard-stats`);
         setStats(statsRes.data);
         
-        const patientsRes = await axios.get('http://localhost:5000/patients');
+        const patientsRes = await axios.get(`${API_URL}/patients`);
         setRecentPatients(patientsRes.data.slice(0, 5)); // Last 5 patients
         setLoading(false);
       } catch (err) {

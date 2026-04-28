@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ShieldPlus } from 'lucide-react';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 const Login = () => {
   const [username, setUsername] = useState('doctor');
   const [password, setPassword] = useState('doctor123');
@@ -12,7 +14,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/login', { username, password });
+      const res = await axios.post(`${API_URL}/login`, { username, password });
       if (res.status === 200) {
         localStorage.setItem('isAuth', 'true');
         navigate('/');

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { History as HistoryIcon, Search } from 'lucide-react';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 const PatientHistory = () => {
   const [patients, setPatients] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,7 +13,7 @@ const PatientHistory = () => {
   useEffect(() => {
     const fetchPatients = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/patients');
+        const res = await axios.get(`${API_URL}/patients`);
         setPatients(res.data);
         setLoading(false);
       } catch (err) {
@@ -77,7 +79,7 @@ const PatientHistory = () => {
                       <button 
                         className="btn btn-outline" 
                         style={{ padding: '0.3rem 0.6rem', fontSize: '0.8rem' }}
-                        onClick={() => window.open(`http://localhost:5000/generate-report/${p.id}`, '_blank')}
+                        onClick={() => window.open(`${API_URL}/generate-report/${p.id}`, '_blank')}
                       >
                         PDF Report
                       </button>
